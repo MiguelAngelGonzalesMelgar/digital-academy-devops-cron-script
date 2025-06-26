@@ -71,15 +71,13 @@ automáticamente según la programación establecida.
 ### 4. Implementar logging detallado:
 
 ```sh
-echo "$(date): Iniciando proceso de backup" >> 
-"$LOG_FILE"
+echo "$(date): Iniciando proceso de backup" >> "$LOG_FILE"
 ```
 
 ### 5. Verificar comandos antes de ejecutar:
 
 ```sh
-if ! command -v curl &> /dev/null; then
-    echo "ERROR: curl no está instalado"
+if ! command -v curl &> /dev/null; then echo "ERROR: curl no está instalado"
     exit 1
 fi
 ```
@@ -87,8 +85,7 @@ fi
 ### 6. Usar códigos de salida apropiados:
 
 ```sh
-if [ $? -eq 0 ]; then
-    echo "Comando ejecutado exitosamente"
+if [ $? -eq 0 ]; then echo "Comando ejecutado exitosamente"
 else
     echo "Error en la ejecución"
     exit 1
@@ -105,8 +102,7 @@ fi
 ### 8. Validar entrada y parámetros
 
 ```sh
-if [ -z "$1" ]; then
-    echo "Error: Se requiere un parámetro"
+if [ -z "$1" ]; then echo "Error: Se requiere un parámetro"
     exit 1
 fi
 ```
